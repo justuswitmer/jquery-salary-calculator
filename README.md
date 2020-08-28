@@ -5,26 +5,45 @@ Salary Calculator
 ## Description
 
 ## Base Mode
-[] create input form that collects 
-    [] employee first name 
-    [] last name 
-    [] ID number 
-    [] job title
-    [] annual salary
+[x] create input form that collects 
+    [x] employee first name 
+    [x] last name 
+    [x] ID number 
+    [x] job title
+    [x] annual salary
 
-[] create submit button
-    [] collect info
-    [] store info to calculate monthly costs
-    [] append info to DOM and clear fields
+[] create submit button - create click event
+    [] create array
+        [] collect info 
+        [] store info to calculate monthly costs
+    [] append info to DOM and clear fields - jQuery
 
 [] Using the stored info
     [] calculate MONTHLY costs
     [] append to DOM
     [] if total MONTHLY costs exceed $20,000 add red background color to total MONTHLY cost
 
-[] create a delete button that removes an employee from DOM
+[] create a delete button that removes an employee from DOM - click event
 
-------------------------------------------------------------
+## Employee Info
+    First Name: Jen
+    Last Name: Barber
+    ID: 4521
+    Title: Team Lead
+    Annual Salary: 80000
+
+    First Name: Maurice
+    Last Name: Moss
+    ID: 8724
+    Title: Support Team
+    Annual Salary: 58000
+
+    First Name: Roy
+    Last Name: Smith
+    ID: 9623
+    Title: Quality Assurance
+    Annual Salary: 48000
+## ------------------------------------------------------------ ##
 
 ## Stretch Mode
 [] once employee is deleted, update total spent on salaries    to account for employee's removal.
