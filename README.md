@@ -18,7 +18,7 @@ Salary Calculator
         [x] store info to calculate monthly costs
     [x] append info to DOM and clear fields - jQuery
 
-[] Using the stored info
+[x] Using the stored info
     [x] calculate MONTHLY costs
     [x] append to DOM
     [x] if total MONTHLY costs exceed $20,000 add red background color to total MONTHLY cost

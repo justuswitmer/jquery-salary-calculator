@@ -1,14 +1,6 @@
 $(document).ready(onReady);
 
-let employeeInfo = [
-    {
-        firstName: 'Jen',
-        lastName: 'Barber',
-        employeeId: '5421',
-        title: 'Team Lead',
-        annualSalary: 80000
-    }
-];
+let employeeInfo = [];
 
 
 function addEmployeeInfo() {
@@ -79,14 +71,14 @@ function displayEmployee() {
     el.empty();
     el.append(`
     <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
-   <th>Job Title</th><th>Annual Salary</th></tr>
+   <th>Job Title</th><th>Annual Salary</th><th></th></tr>
  `);
     // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
-            <tr><td>${employeeInfo[i].firstName}</td><td>${employeeInfo[i].lastName}</td>
-            <td>${employeeInfo[i].employeeId}</td><td>${employeeInfo[i].title}</td>
-             <td>$${employeeInfo[i].annualSalary}</td>
+            <tr><td class="table">${employeeInfo[i].firstName}</td><td class="table">${employeeInfo[i].lastName}</td>
+            <td class="table">${employeeInfo[i].employeeId}</td><td class="table">${employeeInfo[i].title}</td>
+             <td class="table">$${employeeInfo[i].annualSalary}</td>
              <td><button id="removeEmployeeBtn">delete</button></td></tr>
         `);
     } // end for loop
