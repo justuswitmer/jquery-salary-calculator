@@ -96,10 +96,22 @@ function onReady() {
     $(document).on('click', '#removeEmployeeBtn', removeEmployee);
 } // end onReady
 
+
+
 function removeEmployee() {
     console.log('clicked the removeEmployeeBtn');
     // remove employee from DOM (maybe remove from employeeInfo?)
     $(this).closest('tr').remove();
+    /*$('#removeEmployeeBtn').click(function () {
+
+        let val = $(this).closest('tr').find(".firstName").text();
+        console.log(val);
+        let index = employeeInfo.findIndex(function (item) { return item.firstName == val })
+        console.log(index)
+        employeeInfo.splice(index, 1)
+        console.log(employeeInfo);
+    })
+    */
 } // end removeEmployee
 
 
