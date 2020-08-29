@@ -46,25 +46,34 @@ function addEmployeeInfo() {
 
 function calcMonthlyCost() {
     // loop through employeeInfo
-    let monthlyCosts = 0;
+    let monthlyCost = 0;
     for (i = 0; i < employeeInfo.length; i++) {
-        monthlyCosts += Number(employeeInfo[i].annualSalary)
+        // sum employeeInfo.annualSalary
+        monthlyCost += Number(employeeInfo[i].annualSalary)
     } // end for
-    console.log(monthlyCosts);
-    // sum employeeInfo.annualSalary
-    // append sum of employeeInfo.annualSalary to DOM
-    // if monthly costs > $20,000, add red background color to monthly costs
+    console.log(monthlyCost);
+    // divide into monthly cost
+    monthlyCost = Math.round(monthlyCost / 12);
+    console.log(monthlyCost);
+    let el = $('#monthlyCostOut');
+    el.empty();
+    // append sum of employeeInfo.annualSalary / 12 to DOM
+    el.append(`
+    <p>Total Monthly Cost: $${monthlyCost}</p>
+    `);
+
+    // if monthly cost > $20,000, add red background color to monthly costs
 } // end calcMonthlyCost
 
 function displayEmployee() {
     console.log('in displayEmployee');
     let el = $('#employeeInfoOut');
-    // append employeeInfo to DOM, clear fields
+    el.empty();
     el.append(`
-       <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
-      <th>Job Title</th><th>Annual Salary</th></tr>
-    `);
-
+    <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
+   <th>Job Title</th><th>Annual Salary</th></tr>
+ `);
+    // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
             <tr><td>${employeeInfo[i].firstName}</td><td>${employeeInfo[i].lastName}</td>
@@ -77,7 +86,7 @@ function displayEmployee() {
 
 function onReady() {
     // click event for submit button, id 'employeeInfoBtn'
-    $('#employeeInfoBtn').on('click', addEmployeeInfo);
+    $(document).on('click', '#employeeInfoBtn', addEmployeeInfo);
     // click event for deleting employee
 } // end onReady
 
