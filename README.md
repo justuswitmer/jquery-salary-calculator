@@ -12,16 +12,16 @@ Salary Calculator
     [x] job title
     [x] annual salary
 
-[] create submit button - create click event
-    [] create array
-        [] collect info 
-        [] store info to calculate monthly costs
-    [] append info to DOM and clear fields - jQuery
+[x] create submit button - create click event
+    [x] create array
+        [x] collect info 
+        [x] store info to calculate monthly costs
+    [x] append info to DOM and clear fields - jQuery
 
 [] Using the stored info
-    [] calculate MONTHLY costs
-    [] append to DOM
-    [] if total MONTHLY costs exceed $20,000 add red background color to total MONTHLY cost
+    [x] calculate MONTHLY costs
+    [x] append to DOM
+    [x] if total MONTHLY costs exceed $20,000 add red background color to total MONTHLY cost
 
 [] create a delete button that removes an employee from DOM - click event
 

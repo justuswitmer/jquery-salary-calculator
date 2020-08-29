@@ -55,11 +55,19 @@ function calcMonthlyCost() {
     // divide into monthly cost
     monthlyCost = Math.round(monthlyCost / 12);
     console.log(monthlyCost);
+    // condition for showing if monthlyCost > 20000
+    let className;
+    if (monthlyCost > 20000) {
+        className = "monthlyCostDisplay";
+    }
+    else {
+        className = "";
+    }
     let el = $('#monthlyCostOut');
     el.empty();
     // append sum of employeeInfo.annualSalary / 12 to DOM
     el.append(`
-    <p>Total Monthly Cost: $${monthlyCost}</p>
+    <p class =${className}>Total Monthly Cost: $${monthlyCost}</p>
     `);
 
     // if monthly cost > $20,000, add red background color to monthly costs
