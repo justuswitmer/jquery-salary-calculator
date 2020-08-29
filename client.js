@@ -102,9 +102,8 @@ function onReady() {
 
 function removeEmployee() {
     console.log('clicked the removeEmployeeBtn');
-
-
     // remove employee from DOM (maybe remove from employeeInfo?)
+    $(this).closest('tr').remove();
 } // end removeEmployee
 
 

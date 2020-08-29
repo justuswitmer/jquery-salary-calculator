@@ -23,7 +23,7 @@ Salary Calculator
     [x] append to DOM
     [x] if total MONTHLY costs exceed $20,000 add red background color to total MONTHLY cost
 
-[] create a delete button that removes an employee from DOM - click event
+[x] create a delete button that removes an employee from DOM - click event
 
 ## Employee Info
     First Name: Jen
