@@ -35,10 +35,10 @@ function addEmployeeInfo() {
     displayEmployee();
     //} // end else
 } // end addEmployeeInfo
-
+let monthlyCost = 0;
 function calcMonthlyCost() {
     // loop through employeeInfo
-    let monthlyCost = 0;
+    //let monthlyCost = 0;
     for (i = 0; i < employeeInfo.length; i++) {
         // sum employeeInfo.annualSalary
         monthlyCost += Number(employeeInfo[i].annualSalary)
@@ -61,12 +61,16 @@ function calcMonthlyCost() {
     el.append(`
     <p class =${className}>Total Monthly Cost: $${monthlyCost}</p>
     `);
-
+    monthlyCost = 0;
     // if monthly cost > $20,000, add red background color to monthly costs
 } // end calcMonthlyCost
 
 function displayEmployee() {
     console.log('in displayEmployee');
+    let h2 = $('#employeeTitle');
+    h2.empty();
+    h2.append(`<h3 class="headerEmployeeTitle">Employees</h3>`)
+
     let el = $('#employeeInfoOut');
     el.empty();
     el.append(`
