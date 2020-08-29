@@ -19,29 +19,29 @@ function addEmployeeInfo() {
     let title = $('#jobTitleIn').val();
     let annualSalary = $('#annualSalaryIn').val();
     // if statement to check that all fields are filled
-    if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
-        alert('All fields must be filled.')
-    } // end if
-    else {
-        // get employee info and place into a new object
-        const newEmployee = {
-            firstName: $('#firstNameIn').val(),
-            lastName: $('#lastNameIn').val(),
-            employeeId: $('#employeeIdIn').val(),
-            title: $('#jobTitleIn').val(),
-            annualSalary: $('#annualSalaryIn').val()
-        } // end newEmployee
-        // push newEmployee into employeeInfo
-        employeeInfo.push(newEmployee);
-        // remove text from fields
-        $('#firstNameIn').val('');
-        $('#lastNameIn').val('');
-        $('#employeeIdIn').val('');
-        $('#jobTitleIn').val('');
-        $('#annualSalaryIn').val('');
-        console.log(employeeInfo);
-        displayEmployee();
-    } // end else
+    //if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
+    //  alert('All fields must be filled.')
+    //} // end if
+    //else {
+    // get employee info and place into a new object
+    const newEmployee = {
+        firstName: $('#firstNameIn').val(),
+        lastName: $('#lastNameIn').val(),
+        employeeId: $('#employeeIdIn').val(),
+        title: $('#jobTitleIn').val(),
+        annualSalary: $('#annualSalaryIn').val(),
+    } // end newEmployee
+    // push newEmployee into employeeInfo
+    employeeInfo.push(newEmployee);
+    // remove text from fields
+    $('#firstNameIn').val('');
+    $('#lastNameIn').val('');
+    $('#employeeIdIn').val('');
+    $('#jobTitleIn').val('');
+    $('#annualSalaryIn').val('');
+    console.log(employeeInfo);
+    displayEmployee();
+    //} // end else
 } // end addEmployeeInfo
 
 function calcMonthlyCost() {
@@ -86,7 +86,8 @@ function displayEmployee() {
         el.append(`
             <tr><td>${employeeInfo[i].firstName}</td><td>${employeeInfo[i].lastName}</td>
             <td>${employeeInfo[i].employeeId}</td><td>${employeeInfo[i].title}</td>
-             <td>$${employeeInfo[i].annualSalary}</td></tr>
+             <td>$${employeeInfo[i].annualSalary}</td>
+             <td><button id="removeEmployeeBtn">delete</button></td></tr>
         `);
     } // end for loop
     calcMonthlyCost();
@@ -96,9 +97,13 @@ function onReady() {
     // click event for submit button, id 'employeeInfoBtn'
     $(document).on('click', '#employeeInfoBtn', addEmployeeInfo);
     // click event for deleting employee
+    $(document).on('click', '#removeEmployeeBtn', removeEmployee);
 } // end onReady
 
 function removeEmployee() {
+    console.log('clicked the removeEmployeeBtn');
+
+
     // remove employee from DOM (maybe remove from employeeInfo?)
 } // end removeEmployee
 
