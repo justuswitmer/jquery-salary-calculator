@@ -10,6 +10,23 @@ let employeeInfo = [
     }
 ];
 
+
+function addEmployeeInfo() {
+    console.log('in addEmployeeInfo');
+    // get employee info and place into a new object
+    const newEmployee = {
+        firstName: $('#firstNameIn').val(),
+        lastName: $('#lastNameIn').val(),
+        employeeId: $('#employeeIdIn').val(),
+        title: $('#jobTitleIn').val(),
+        annualSalary: $('#annualSalaryIn').val()
+    } // end newEmployee
+    // push newEmployee into employeeInfo
+    employeeInfo.push(newEmployee);
+    console.log(employeeInfo);
+    displayEmployee();
+} // end addEmployeeInfo
+
 function calcMonthlyCost() {
     // loop through employeeInfo
     // sum employeeInfo.annualSalary
@@ -17,26 +34,23 @@ function calcMonthlyCost() {
     // if monthly costs > $20,000, add red background color to monthly costs
 } // end calcMonthlyCost
 
-function addEmployee() {
-    console.log('in addEmployee');
-    // get employee info and place into a new object
-    const newEmployee = {
-        firstName: $('#firstNameIn').valueOf(),
-        lastName: $('#lastNameIn').valueOf(),
-        employeeId: $('#employeeIdIn').valueOf(),
-        title: $('#jobTitleIn').valueOf(),
-        annualSalary: $('#annualSalaryIn').valueOf()
-    } // end newEmployee
-    // push newEmployee into employeeInfo
-    employeeInfo.push(newEmployee);
-    console.log(employeeInfo);
-
+function displayEmployee() {
+    console.log('in displayEmployee');
+    let el = $('#employeeInfoOut');
+    el.empty();
     // append employeeInfo to DOM, clear fields
-} // end addEmployee
+    for (let i = 0; i < employeeInfo.length; i++) {
+        el.append(`
+            <li>${employeeInfo[i].firstName} ${employeeInfo[i].lastName}
+            (${employeeInfo[i].employeeId}) – ${employeeInfo[i].title}:
+             $${employeeInfo[i].annualSalary}</li>
+        `);
+    } // end for loop  
+} // end displayEmployee
 
 function onReady() {
     // click event for submit button, id 'employeeInfoBtn'
-
+    $('#employeeInfoBtn').on('click', addEmployeeInfo);
     // click event for deleting employee
 } // end onReady
 
