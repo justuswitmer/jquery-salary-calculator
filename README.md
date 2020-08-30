@@ -46,8 +46,8 @@ Salary Calculator
 ## ------------------------------------------------------------ ##
 
 ## Stretch Mode
-[] once employee is deleted, update total spent on salaries    to account for employee's removal.
-    [] you will need to use `.text()` as a getter or look into jQuery's `.data()` function.
+[x] once employee is deleted, update total spent on salaries    to account for employee's removal.
+    [x] you will need to use `.text()` as a getter or look into jQuery's `.data()` function.
 [x] add styling or extra functionality that fits the theme of assignment
 
 
