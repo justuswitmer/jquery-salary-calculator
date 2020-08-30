@@ -11,31 +11,33 @@ function addEmployeeInfo() {
     let title = $('#jobTitleIn').val();
     let annualSalary = $('#annualSalaryIn').val();
     // if statement to check that all fields are filled
-    //if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
-    //  alert('All fields must be filled.')
-    //} // end if
-    //else {
-    // get employee info and place into a new object
-    const newEmployee = {
-        firstName: $('#firstNameIn').val(),
-        lastName: $('#lastNameIn').val(),
-        employeeId: $('#employeeIdIn').val(),
-        title: $('#jobTitleIn').val(),
-        annualSalary: $('#annualSalaryIn').val(),
-    } // end newEmployee
-    // push newEmployee into employeeInfo
-    employeeInfo.push(newEmployee);
-    // remove text from fields
-    $('#firstNameIn').val('');
-    $('#lastNameIn').val('');
-    $('#employeeIdIn').val('');
-    $('#jobTitleIn').val('');
-    $('#annualSalaryIn').val('');
-    console.log(employeeInfo);
-    displayEmployee();
-    //} // end else
+    if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
+        alert('All fields must be filled.')
+    } // end if
+    else {
+        // get employee info and place into a new object
+        const newEmployee = {
+            firstName: $('#firstNameIn').val(),
+            lastName: $('#lastNameIn').val(),
+            employeeId: $('#employeeIdIn').val(),
+            title: $('#jobTitleIn').val(),
+            annualSalary: $('#annualSalaryIn').val(),
+        } // end newEmployee
+        // push newEmployee into employeeInfo
+        employeeInfo.push(newEmployee);
+        // remove text from fields
+        $('#firstNameIn').val('');
+        $('#lastNameIn').val('');
+        $('#employeeIdIn').val('');
+        $('#jobTitleIn').val('');
+        $('#annualSalaryIn').val('');
+        console.log(employeeInfo);
+        displayEmployee();
+    } // end else
 } // end addEmployeeInfo
+
 let monthlyCost = 0;
+
 function calcMonthlyCost() {
     // loop through employeeInfo
     //let monthlyCost = 0;
@@ -43,10 +45,8 @@ function calcMonthlyCost() {
         // sum employeeInfo.annualSalary
         monthlyCost += Number(employeeInfo[i].annualSalary)
     } // end for
-    console.log(monthlyCost);
     // divide into monthly cost
     monthlyCost = Math.round(monthlyCost / 12);
-    console.log(monthlyCost);
     // condition for showing if monthlyCost > 20000
     let className;
     if (monthlyCost > 20000) {
@@ -59,8 +59,8 @@ function calcMonthlyCost() {
     el.empty();
     // append sum of employeeInfo.annualSalary / 12 to DOM
     el.append(`
-    <p class =${className}>Total Monthly Cost: $${monthlyCost}</p>
-    `);
+        <p class =${className}>Total Monthly Cost: $${monthlyCost}</p>
+        `);
     monthlyCost = 0;
     // if monthly cost > $20,000, add red background color to monthly costs
 } // end calcMonthlyCost
@@ -74,17 +74,17 @@ function displayEmployee() {
     let el = $('#employeeInfoOut');
     el.empty();
     el.append(`
-    <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
-   <th>Job Title</th><th>Annual Salary</th><th></th></tr>
- `);
+            <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
+            <th>Job Title</th><th>Annual Salary</th><th></th></tr>
+            `);
     // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
             <tr><td class="table">${employeeInfo[i].firstName}</td><td class="table">${employeeInfo[i].lastName}</td>
             <td class="table">${employeeInfo[i].employeeId}</td><td class="table">${employeeInfo[i].title}</td>
-             <td class="table">$${employeeInfo[i].annualSalary}</td>
-             <td><button id="removeEmployeeBtn">delete</button></td></tr>
-        `);
+            <td class="table">$${employeeInfo[i].annualSalary}</td>
+            <td><button id="removeEmployeeBtn">delete</button></td></tr>
+            `);
     } // end for loop
     calcMonthlyCost();
 } // end displayEmployee
@@ -101,17 +101,15 @@ function onReady() {
 function removeEmployee() {
     console.log('clicked the removeEmployeeBtn');
     // remove employee from DOM (maybe remove from employeeInfo?)
-    $(this).closest('tr').remove();
-    /*$('#removeEmployeeBtn').click(function () {
 
-        let val = $(this).closest('tr').find(".firstName").text();
-        console.log(val);
-        let index = employeeInfo.findIndex(function (item) { return item.firstName == val })
-        console.log(index)
-        employeeInfo.splice(index, 1)
-        console.log(employeeInfo);
-    })
-    */
+    let test = $(this).closest('tr').find(".firstName").text();
+    console.log(test);
+    let index = employeeInfo.findIndex(function (item) { return item.firstName === test });
+    console.log(index);
+    employeeInfo.splice(index, 1);
+    console.log(employeeInfo);
+    $(this).closest('tr').remove();
+    calcMonthlyCost();
 } // end removeEmployee
 
 
