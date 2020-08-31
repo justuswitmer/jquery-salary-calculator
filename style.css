@@ -4,7 +4,9 @@ body {
 
 .monthlyCostDisplay {
     background-color: red;
-    margin-left: 64%; 
+    text-align: center;
+    margin-inline-start: 40%;
+    margin-inline-end: 40%;
 }
 
 #employeeInfoOut {
@@ -34,8 +36,7 @@ div {
 }
 
 #monthlyCostOut {
-    text-align: right;
-    margin-right: 37.5%;
+    text-align: center;
 }
 
 .inputs {
@@ -47,5 +48,9 @@ div {
     margin-bottom: 0px;
 }
 
+.tableHeader {
+    background-color: lightsteelblue;
+    border-bottom:1px solid black;
+}
 
 

@@ -11,29 +11,29 @@ function addEmployeeInfo() {
     let title = $('#jobTitleIn').val();
     let annualSalary = $('#annualSalaryIn').val();
     // if statement to check that all fields are filled
-    if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
-        alert('All fields must be filled.')
-    } // end if
-    else {
-        // get employee info and place into a new object
-        const newEmployee = {
-            firstName: $('#firstNameIn').val(),
-            lastName: $('#lastNameIn').val(),
-            employeeId: $('#employeeIdIn').val(),
-            title: $('#jobTitleIn').val(),
-            annualSalary: $('#annualSalaryIn').val(),
-        } // end newEmployee
-        // push newEmployee into employeeInfo
-        employeeInfo.push(newEmployee);
-        // remove text from fields
-        $('#firstNameIn').val('');
-        $('#lastNameIn').val('');
-        $('#employeeIdIn').val('');
-        $('#jobTitleIn').val('');
-        $('#annualSalaryIn').val('');
-        console.log(employeeInfo);
-        displayEmployee();
-    } // end else
+    //if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
+    //    alert('All fields must be filled.')
+    //} // end if
+    //else {
+    // get employee info and place into a new object
+    const newEmployee = {
+        firstName: $('#firstNameIn').val(),
+        lastName: $('#lastNameIn').val(),
+        employeeId: $('#employeeIdIn').val(),
+        title: $('#jobTitleIn').val(),
+        annualSalary: $('#annualSalaryIn').val(),
+    } // end newEmployee
+    // push newEmployee into employeeInfo
+    employeeInfo.push(newEmployee);
+    // remove text from fields
+    $('#firstNameIn').val('');
+    $('#lastNameIn').val('');
+    $('#employeeIdIn').val('');
+    $('#jobTitleIn').val('');
+    $('#annualSalaryIn').val('');
+    console.log(employeeInfo);
+    displayEmployee();
+    //} // end else
 } // end addEmployeeInfo
 
 let monthlyCost = 0;
@@ -74,8 +74,8 @@ function displayEmployee() {
     let el = $('#employeeInfoOut');
     el.empty();
     el.append(`
-            <tr><th>First Name</th><th>Last Name</th><th>Employee ID</th>
-            <th>Job Title</th><th>Annual Salary</th><th></th></tr>
+            <tr><th class="tableHeader">First Name</th><th class="tableHeader">Last Name</th><th class="tableHeader">Employee ID</th>
+            <th class="tableHeader">Job Title</th><th class="tableHeader">Annual Salary</th><th class="tableHeader"></th></tr>
             `);
     // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
