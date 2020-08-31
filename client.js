@@ -11,29 +11,29 @@ function addEmployeeInfo() {
     let title = $('#jobTitleIn').val();
     let annualSalary = $('#annualSalaryIn').val();
     // if statement to check that all fields are filled
-    //if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
-    //    alert('All fields must be filled.')
-    //} // end if
-    //else {
-    // get employee info and place into a new object
-    const newEmployee = {
-        firstName: $('#firstNameIn').val(),
-        lastName: $('#lastNameIn').val(),
-        employeeId: $('#employeeIdIn').val(),
-        title: $('#jobTitleIn').val(),
-        annualSalary: $('#annualSalaryIn').val(),
-    } // end newEmployee
-    // push newEmployee into employeeInfo
-    employeeInfo.push(newEmployee);
-    // remove text from fields
-    $('#firstNameIn').val('');
-    $('#lastNameIn').val('');
-    $('#employeeIdIn').val('');
-    $('#jobTitleIn').val('');
-    $('#annualSalaryIn').val('');
-    console.log(employeeInfo);
-    displayEmployee();
-    //} // end else
+    if (!firstName || !lastName || !employeeId || !title || !annualSalary) {
+        alert('All fields must be filled.')
+    } // end if
+    else {
+        // get employee info and place into a new object
+        const newEmployee = {
+            firstName: $('#firstNameIn').val(),
+            lastName: $('#lastNameIn').val(),
+            employeeId: $('#employeeIdIn').val(),
+            title: $('#jobTitleIn').val(),
+            annualSalary: Number($('#annualSalaryIn').val()),
+        } // end newEmployee
+        // push newEmployee into employeeInfo
+        employeeInfo.push(newEmployee);
+        // remove text from fields
+        $('#firstNameIn').val('');
+        $('#lastNameIn').val('');
+        $('#employeeIdIn').val('');
+        $('#jobTitleIn').val('');
+        $('#annualSalaryIn').val('');
+        console.log(employeeInfo);
+        displayEmployee();
+    } // end else
 } // end addEmployeeInfo
 
 let monthlyCost = 0;
@@ -43,7 +43,7 @@ function calcMonthlyCost() {
     //let monthlyCost = 0;
     for (i = 0; i < employeeInfo.length; i++) {
         // sum employeeInfo.annualSalary
-        monthlyCost += Number(employeeInfo[i].annualSalary)
+        monthlyCost += employeeInfo[i].annualSalary;
     } // end for
     // divide into monthly cost
     monthlyCost = Math.round(monthlyCost / 12);
@@ -74,14 +74,22 @@ function displayEmployee() {
     let el = $('#employeeInfoOut');
     el.empty();
     el.append(`
-            <tr><th class="tableHeader">First Name</th><th class="tableHeader">Last Name</th><th class="tableHeader">Employee ID</th>
-            <th class="tableHeader">Job Title</th><th class="tableHeader">Annual Salary</th><th class="tableHeader"></th></tr>
+            <tr>
+            <th class="tableHeader">First Name</th>
+            <th class="tableHeader">Last Name</th>
+            <th class="tableHeader">Employee ID</th>
+            <th class="tableHeader">Job Title</th>
+            <th class="tableHeader">Annual Salary</th>
+            <th class="tableHeader"></th></tr>
             `);
     // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
-            <tr><td class="table">${employeeInfo[i].firstName}</td><td class="table">${employeeInfo[i].lastName}</td>
-            <td id="employeeId" class="table">${employeeInfo[i].employeeId}</td><td class="table">${employeeInfo[i].title}</td>
+            <tr>
+            <td class="table">${employeeInfo[i].firstName}</td>
+            <td class="table">${employeeInfo[i].lastName}</td>
+            <td id="employeeId" class="table">${employeeInfo[i].employeeId}</td>
+            <td class="table">${employeeInfo[i].title}</td>
             <td class="table">$${employeeInfo[i].annualSalary}</td>
             <td><button id="removeEmployeeBtn">delete</button></td></tr>
             `);
@@ -111,5 +119,9 @@ function removeEmployee() {
     $(this).closest('tr').remove();
     calcMonthlyCost();
 } // end removeEmployee
+
+
+//alternative remove
+
 
 
