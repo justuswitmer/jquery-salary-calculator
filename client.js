@@ -80,8 +80,8 @@ function displayEmployee() {
     // append employeeInfo to DOM, clear fields
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
-            <tr><td id="firstName" class="table">${employeeInfo[i].firstName}</td><td class="table">${employeeInfo[i].lastName}</td>
-            <td class="table">${employeeInfo[i].employeeId}</td><td class="table">${employeeInfo[i].title}</td>
+            <tr><td class="table">${employeeInfo[i].firstName}</td><td class="table">${employeeInfo[i].lastName}</td>
+            <td id="employeeId" class="table">${employeeInfo[i].employeeId}</td><td class="table">${employeeInfo[i].title}</td>
             <td class="table">$${employeeInfo[i].annualSalary}</td>
             <td><button id="removeEmployeeBtn">delete</button></td></tr>
             `);
@@ -102,9 +102,9 @@ function removeEmployee() {
     console.log('clicked the removeEmployeeBtn');
     // remove employee from DOM (maybe remove from employeeInfo?)
 
-    let test = $(this).closest('tr').find("#firstName").text();
+    let test = $(this).closest('tr').find("#employeeId").text();
     console.log(test);
-    let index = employeeInfo.findIndex(function (item) { return item.firstName === test });
+    let index = employeeInfo.findIndex(function (item) { return item.employeeId === test });
     console.log(index);
     employeeInfo.splice(index, 1);
     console.log(employeeInfo);
